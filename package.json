@@ -1,15 +1,14 @@
 {
   "name": "chinese2variable",
   "displayName": "chinese2variable",
-  "description": "Use Chinese rapid construction",
+  "description": "A vs-code plugin that can be passed through Chinese generated variable name",
   "version": "0.0.1",
   "engines": {
-    "vscode": "^1.79.0"
+    "vscode": "^1.70.0"
   },
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
