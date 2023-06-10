@@ -1,7 +1,7 @@
 {
   "name": "language2variable",
   "displayName": "language2variable",
-  "description": "A vs-code plugin that can be passed through Chinese generated variable name",
+  "description": "A vs-code plugin that can be passed through national language generated variable name",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.70.0"

@@ -14,11 +14,11 @@
 
 <p align="center">
   <samp>
-    A vs-code plugin that can be passed through Chinese generated variable name
+    A vs-code plugin
   </samp>
   <br />
   <samp>
-    一款可以通过中文生成变量名的 vs-code 插件
+    that can be passed through national language generated variable name
   </samp>
 </p>
 
