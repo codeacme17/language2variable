@@ -1,5 +1,5 @@
 import md5 from 'md5'
-import fetch from 'node-fetch'
+import axios from 'axios'
 
 export default async function translator(
   text: string,
@@ -22,16 +22,14 @@ export default async function translator(
   formData.append('salt', salt)
   formData.append('sign', sign)
 
-  const res: any = await (
-    await fetch(url, {
-      method: 'POST',
-      headers: {
-        // eslint-disable-next-line @typescript-eslint/naming-convention
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: formData,
-    })
-  ).json()
+  const res: any = await axios(url, {
+    method: 'POST',
+    headers: {
+      // eslint-disable-next-line @typescript-eslint/naming-convention
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    data: formData,
+  })
 
-  return res.trans_result[0].dst
+  return res.data.trans_result[0].dst
 }

@@ -1,4 +1,6 @@
 import * as vscode from 'vscode'
+import translator from './utils/translator'
+import toVariables from './utils/to-variables'
 
 export function activate(context: vscode.ExtensionContext) {
   let disposable = vscode.commands.registerCommand(
@@ -9,44 +11,40 @@ export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(disposable)
 }
 
-async function userInput() {
+async function userInput(): Promise<void> {
   const input = await vscode.window.showInputBox({
-    prompt: '输入您的中文变量名',
+    prompt: 'enter your variable name',
   })
 
-  if (input) {
-    const translations = await myTranslator(input)
+  const quickPick = vscode.window.createQuickPick()
 
-    const quickPick = vscode.window.createQuickPick()
-
-    quickPick.items = translations.map((translation) => ({
-      label: translation,
-    }))
-
-    quickPick.show()
-
-    quickPick.onDidChangeSelection((selection) => {
-      if (selection && selection[0]) {
-        const selectedTranslation = selection[0].label
-        const editor = vscode.window.activeTextEditor
-        if (editor) {
-          editor.edit((editBuilder) => {
-            editBuilder.insert(editor.selection.active, selectedTranslation)
-          })
-
-          quickPick.hide()
-        }
-      }
-    })
+  if (!input?.trim()) {
+    return
   }
-}
 
-function myTranslator(text: string): Promise<string[]> {
-  const translations = [
-    'Translation 1',
-    'Translation 2',
-    'Translation 3',
-    'Translation 4',
-  ]
-  return Promise.resolve(translations)
+  const translatedWord = await translator(input.trim())
+  console.log(translatedWord)
+  vscode.window.showInformationMessage(translatedWord)
+  const variables = toVariables(translatedWord)
+
+  quickPick.items = variables.map((variable) => ({
+    label: variable,
+  }))
+
+  quickPick.show()
+
+  quickPick.onDidChangeSelection((selection) => {
+    if (!selection || !selection[0]) {
+      return
+    }
+    const selectedTranslation = selection[0].label
+    const editor = vscode.window.activeTextEditor
+    if (editor) {
+      editor.edit((editBuilder) => {
+        editBuilder.insert(editor.selection.active, selectedTranslation)
+      })
+
+      quickPick.hide()
+    }
+  })
 }
