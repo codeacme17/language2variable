@@ -12,7 +12,8 @@
 </p>
   
 <p>
-  <a href="https://marketplace.visualstudio.com/items?itemName=leyoonafr.language2variable">Install Extension </a>
+  <a href="https://github.com/codeacme17/language2variable">Github</a> | 
+  <a href="https://marketplace.visualstudio.com/items?itemName=leyoonafr.language2variable">Install Extension</a>
 </p>
   
 <br />
