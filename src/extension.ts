@@ -12,39 +12,36 @@ export function activate(context: vscode.ExtensionContext) {
 }
 
 async function userInput(): Promise<void> {
-  const input = await vscode.window.showInputBox({
-    prompt: 'enter your variable name',
-  })
-
+  const input = vscode.window.createInputBox()
   const quickPick = vscode.window.createQuickPick()
 
-  if (!input?.trim()) {
-    return
-  }
+  input.placeholder = 'plz enter the variable name you want to create'
+  input.show()
 
-  const translatedWord = await translator(input.trim())
-  console.log(translatedWord)
-  vscode.window.showInformationMessage(translatedWord)
-  const variables = toVariables(translatedWord)
+  input.onDidAccept(async () => {
+    if (!input.value.trim()) return
 
-  quickPick.items = variables.map((variable) => ({
-    label: variable,
-  }))
+    input.busy = true
+    const translatedWord = await translator(input.value.trim())
+    input.hide()
 
-  quickPick.show()
+    const variables = toVariables(translatedWord)
+    quickPick.items = variables
+    quickPick.placeholder = 'you can select one'
+    quickPick.show()
 
-  quickPick.onDidChangeSelection((selection) => {
-    if (!selection || !selection[0]) {
-      return
-    }
-    const selectedTranslation = selection[0].label
-    const editor = vscode.window.activeTextEditor
-    if (editor) {
-      editor.edit((editBuilder) => {
-        editBuilder.insert(editor.selection.active, selectedTranslation)
-      })
+    quickPick.onDidChangeSelection((selection) => {
+      if (!selection || !selection[0]) return
 
-      quickPick.hide()
-    }
+      const selectedTranslation = selection[0].label
+      const editor = vscode.window.activeTextEditor
+      if (editor) {
+        editor.edit((editBuilder) => {
+          editBuilder.insert(editor.selection.active, selectedTranslation)
+        })
+
+        quickPick.hide()
+      }
+    })
   })
 }
