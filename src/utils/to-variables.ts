@@ -11,18 +11,18 @@ export default function toVariables(text: string): QuickPickItem[] {
   const res: QuickPickItem[] = [
     {
       label: camelCase,
-      description: '`camelCase` type variable $(breakpoints-activate)',
+      description: "'camelCase' type variable $(breakpoints-activate)",
     },
     {
       label: constant,
-      description: '`constant` type variable',
+      description: "'constant' type variable",
     },
   ]
 
   if (textList.length > 1)
     res.push({
       label: python,
-      description: '`underline` type variable',
+      description: "'underline' type variable",
     })
 
   return res
