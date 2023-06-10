@@ -21,7 +21,7 @@ async function userInput(): Promise<void> {
   input.onDidAccept(async () => {
     if (!input.value.trim()) return
 
-    input.busy = true
+    input.prompt = 'translating... $(sync~spin)'
     const translatedWord = await translator(input.value.trim())
     input.hide()
 
@@ -29,6 +29,10 @@ async function userInput(): Promise<void> {
     quickPick.items = variables
     quickPick.placeholder = 'you can select one'
     quickPick.show()
+
+    quickPick.onDidChangeActive((e) => {
+      console.log(e)
+    })
 
     quickPick.onDidChangeSelection((selection) => {
       if (!selection || !selection[0]) return

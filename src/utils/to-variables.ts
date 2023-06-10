@@ -5,13 +5,13 @@ export default function toVariables(text: string): QuickPickItem[] {
   const textList = text.split(' ')
 
   const camelCase = toCamelCase(textList)
-  const constant = toContant(textList)
+  const constant = toConstant(textList)
   const python = toPythonVariable(textList)
 
-  const res = [
+  const res: QuickPickItem[] = [
     {
       label: camelCase,
-      description: '`camelCase` type variable',
+      description: '`camelCase` type variable $(breakpoints-activate)',
     },
     {
       label: constant,
@@ -22,7 +22,7 @@ export default function toVariables(text: string): QuickPickItem[] {
   if (textList.length > 1)
     res.push({
       label: python,
-      description: '`python` type variable',
+      description: '`underline` type variable',
     })
 
   return res
@@ -41,7 +41,7 @@ function toCamelCase(textList: string[]): string {
   return result
 }
 
-function toContant(textList: string[]): string {
+function toConstant(textList: string[]): string {
   if (textList.length === 1) return textList[0].toUpperCase()
 
   const l = textList.map((text) => text.toUpperCase())
