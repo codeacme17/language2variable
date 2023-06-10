@@ -1,18 +1,25 @@
 import * as vscode from 'vscode'
 
 export function activate(context: vscode.ExtensionContext) {
-  console.log(
-    'Congratulations, your extension "chinese2variable" is now active!'
-  )
-
   let disposable = vscode.commands.registerCommand(
-    'chinese2variable.helloWorld',
-    () => {
-      vscode.window.showInformationMessage('Hello World from chinese2variable!')
-    }
+    'chinese2variable.userInput',
+    userInput
   )
 
   context.subscriptions.push(disposable)
 }
 
-export function deactivate() {}
+async function userInput() {
+  const input = await vscode.window.showInputBox({
+    prompt: 'Enter text to insert',
+  })
+
+  if (input) {
+    const editor = vscode.window.activeTextEditor
+    if (editor) {
+      editor.edit((editBuilder) => {
+        editBuilder.insert(editor.selection.active, input)
+      })
+    }
+  }
+}

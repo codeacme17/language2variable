@@ -13,8 +13,16 @@
   "contributes": {
     "commands": [
       {
-        "command": "chinese2variable.helloWorld",
-        "title": "Hello World"
+        "command": "chinese2variable.userInput",
+        "title": "user input"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "chinese2variable.userInput",
+        "key": "ctrl+shift+d",
+        "mac": "cmd+shift+d",
+        "when": "editorTextFocus"
       }
     ]
   },
