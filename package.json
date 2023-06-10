@@ -3,6 +3,18 @@
   "displayName": "language2variable",
   "description": "A vs-code plugin that can be passed through national language generated variable name",
   "version": "0.0.1",
+  "author": "leyoonafr",
+  "homepage": "https://github.com/codeacme17/language2variable#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codeacme17/language2variable"
+  },
+  "keywords": [
+    "vs-code extension",
+    "translator",
+    "national language to variable"
+  ],
+  "license": "MIT",
   "engines": {
     "vscode": "^1.70.0"
   },
