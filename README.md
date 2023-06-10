@@ -1,9 +1,8 @@
 <br />
 <br />
-<br />
 
 <p align="center">
-  <img width="120" alt="logo" src="./public/icon.png"/> 
+  <img width="110" alt="logo" src="./public/icon.png"/> 
 </p>
 
 <h3 align="center">
@@ -14,7 +13,7 @@
 
 <p align="center">
   <samp>
-    A vs-code plugin
+    A vs-code plugin, 
   </samp>
   <br />
   <samp>
@@ -23,9 +22,16 @@
 </p>
 
 <br />
-<br />
-<br />
 
+
+## Use Case
+<p align="center">
+  <img width="500" alt="logo" src="./public/screen-record.gif"/> 
+</p>
+
+
+## How to use
+Press shortcut key (shift + cmd/ctrl + v)
 
 
 ## License
