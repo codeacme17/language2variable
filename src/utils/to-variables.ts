@@ -11,7 +11,7 @@ export default function toVariables(text: string): QuickPickItem[] {
   const res: QuickPickItem[] = [
     {
       label: camelCase,
-      description: "'camelCase' type variable $(breakpoints-activate)",
+      description: "'camelCase' type variable",
     },
     {
       label: constant,
