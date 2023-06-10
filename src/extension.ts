@@ -19,13 +19,14 @@ async function userInput(): Promise<void> {
   input.show()
 
   input.onDidAccept(async () => {
-    if (!input.value.trim()) return
+    if (!input.value.trim() || input.busy) return
 
-    input.prompt = 'translating... $(sync~spin)'
+    input.busy = true
+    input.prompt = 'is generating...  $(sync~spin)'
     const translatedWord = await translator(input.value.trim())
+    const variables = toVariables(translatedWord)
     input.hide()
 
-    const variables = toVariables(translatedWord)
     quickPick.items = variables
     quickPick.placeholder = 'you can select one'
     quickPick.show()

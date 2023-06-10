@@ -2,7 +2,7 @@
   "name": "language2variable",
   "displayName": "language2variable",
   "description": "A vs-code plugin that can be passed through national language generated variable name",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "leyoonafr",
   "homepage": "https://github.com/codeacme17/language2variable#readme",
   "repository": {
@@ -29,7 +29,7 @@
     "commands": [
       {
         "command": "language2variable.userInput",
-        "title": "user input"
+        "title": "language2variable get user input"
       }
     ],
     "keybindings": [
