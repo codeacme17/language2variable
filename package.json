@@ -1,6 +1,6 @@
 {
-  "name": "chinese2variable",
-  "displayName": "chinese2variable",
+  "name": "language2variable",
+  "displayName": "language2variable",
   "description": "A vs-code plugin that can be passed through Chinese generated variable name",
   "version": "0.0.1",
   "engines": {
@@ -13,13 +13,13 @@
   "contributes": {
     "commands": [
       {
-        "command": "chinese2variable.userInput",
+        "command": "language2variable.userInput",
         "title": "user input"
       }
     ],
     "keybindings": [
       {
-        "command": "chinese2variable.userInput",
+        "command": "language2variable.userInput",
         "key": "ctrl+shift+d",
         "mac": "cmd+shift+d",
         "when": "editorTextFocus"

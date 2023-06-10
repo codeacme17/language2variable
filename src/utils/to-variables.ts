@@ -1,7 +1,7 @@
 import { QuickPickItem } from 'vscode'
 
 export default function toVariables(text: string): QuickPickItem[] {
-  text = text.toLowerCase()
+  text = text.trim().toLowerCase()
   const textList = text.split(' ')
 
   const camelCase = toCamelCase(textList)
@@ -51,5 +51,6 @@ function toContant(textList: string[]): string {
 
 function toPythonVariable(textList: string[]): string {
   const result = textList.join('_')
+
   return result
 }

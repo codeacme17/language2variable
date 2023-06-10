@@ -8,7 +8,7 @@
 
 <h3 align="center">
   <samp>
-    chinese2variable
+    language2variable
   </samp>
 </h3>
 

@@ -4,7 +4,7 @@ import toVariables from './utils/to-variables'
 
 export function activate(context: vscode.ExtensionContext) {
   let disposable = vscode.commands.registerCommand(
-    'chinese2variable.userInput',
+    'language2variable.userInput',
     userInput
   )
 
