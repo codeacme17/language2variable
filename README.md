@@ -21,7 +21,7 @@
 ## Use Case
 <br />
 <p>
-  Press shortcut key (shift + cmd/ctrl + v)  
+  Press shortcut key (<strong>shift + cmd/ctrl + v</strong>)  
 </p>
 <br />
 
