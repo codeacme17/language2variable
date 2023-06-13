@@ -26,7 +26,7 @@
 <br />
 
 <p>
-  <img width="500" alt="logo" src="./public/screen-record.gif"/> 
+  <img width="700" alt="logo" src="./public/screen-record.gif"/> 
 </p>
 
 <br />
